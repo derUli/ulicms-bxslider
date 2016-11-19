@@ -1,0 +1,7 @@
+{
+	"source" : "extend",
+	"version" : "1.0",
+	"embed" : true,
+	"custom_acl" : ["bxSlider"],
+	"admin_permission" : "bxSlider"
+}
