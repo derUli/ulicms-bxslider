@@ -8,7 +8,7 @@ if ($slider and is_array ( $slider )) {
 	?>
 <ul class="bxslider">
 <?php foreach($slider as $picture){?>
-  <li><img src="<?php Template::escape($slider->file);?>" /></li>
+  <li><img src="<?php Template::escape($picture->file);?>" /></li>
 <?php }?>
 
 </ul>

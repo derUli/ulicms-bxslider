@@ -1,5 +1,5 @@
 <?php if(containsModule(null, "bxSlider")){?>
-<script type="text-javasript">
+<script type="text/javascript">
 $(document).ready(function(){
   $('.bxslider').bxSlider();
 });
