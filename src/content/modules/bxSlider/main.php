@@ -11,7 +11,7 @@ function bxSlider_get($id) {
 	$query = Database::pQuery ( $sql, $args, true );
 	if (Database::getNumRows ( $query ) > 0) {
 		$result = array ();
-		while ( $row = Database::FetchObject ( $query ) ) {
+		while ( $row = Database::fetchObject ( $query ) ) {
 			$result [] = $row;
 		}
 	}
