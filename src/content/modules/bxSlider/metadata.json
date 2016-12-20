@@ -1,7 +1,10 @@
 {
 	"source" : "extend",
-	"version" : "0.1",
+	"version" : "0.2",
 	"embed" : true,
 	"custom_acl" : ["bxSlider"],
-	"admin_permission" : "bxSlider"
+	"admin_permission" : "bxSlider",
+	"controllers" : {
+		"SliderController" : "controller/slider_controller.php"
+	}
 }
