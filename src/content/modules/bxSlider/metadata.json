@@ -10,6 +10,7 @@
 		"SliderController": "controller/slider_controller.php"
 	},
 	"actions": {
-		"bxslider_new": "templates/slider_new"
+		"bxslider_new": "templates/slider_new",
+		"bxslider_edit": "templates/slider_edit"
 	}
 }
