@@ -16,4 +16,12 @@ class SliderController extends Controller {
 		$result = Database::fetchObject ( $query );
 		return $result->amount;
 	}
+	public function create(){
+		$title = strval($_POST["title"]);
+		$enabled = intval(isset($_POST["enabled"]));
+		$args = array($title, $enabled);
+		$sql = "INSERT INTO {prefix}slider (title, enabled) values (?, ?)";
+		Database::pQuery($sql, $args, true);
+		Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
+	}
 }
