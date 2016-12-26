@@ -40,6 +40,14 @@ class SliderController extends Controller {
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
+	public function delete(){
+		$id = intval($_REQUEST["id"]);
+		$sql = "DELETE FROM {prefix}slider where id = ?";
+		$args = array($id);
+		Database::pQuery($sql, $args, true);
+		Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
+		
+	}
 	public function getSliderWithoutPictures($id) {
 		$data = null;
 		$sql = "select title, enabled from {prefix}slider where id = ?";

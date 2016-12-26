@@ -11,8 +11,9 @@ function bxSlider_admin() {
 		<th><?php translate("id");?></th>
 		<th><?php translate("title");?></th>
 		<th><?php translate("amount_of_pictures");?></th>
-		<td style="text-align: center"><strong><?php translate("edit");?></strong>
-		</td>
+
+		<td></td>
+		<td></td>
 	</thead>
 	<tbody>
 	<?php foreach(ControllerRegistry::get("SliderController")->getAllSliders() as $dataset){?>
@@ -24,6 +25,20 @@ function bxSlider_admin() {
 				href="<?php echo ModuleHelper::buildActionURL("bxslider_edit", "id=".$dataset->id);?>"><img
 					src="gfx/edit.png" class="mobile-big-image"
 					alt="<?php translate("edit");?>" title="<?php translate("edit");?>"></a></td>
+			<td style="text-align: center;"><form
+					action="<?php echo ModuleHelper::buildAdminURL("bxSlider", "sClass=SliderController&sMethod=delete&id=".$dataset->id);?>"
+					method="post" onsubmit="return confirm('Wirklich Löschen?')"
+					class="delete-form"><?php csrf_token_html();?><input type="image"
+						class="mobile-big-image" src="gfx/delete.gif"
+						alt="<?php
+		
+		translate ( "delete" );
+		?>"
+						title="<?php
+		
+		translate ( "delete" );
+		?>">
+				</form></td>
 
 		</tr>
 	<?php }?>
