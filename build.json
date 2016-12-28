@@ -1,6 +1,6 @@
 {
    "id" : "bxSlider",
-   "version" : "0.2",
+   "version" : "0.4",
    "description" : "bxSlider for UliCMS",
    "categories" : ["design", "slideshow", "slider", "images"],
    "compatible_from" : "2017.1"
