@@ -19,7 +19,9 @@ function bxSlider_admin() {
 	<?php foreach(ControllerRegistry::get("SliderController")->getAllSliders() as $dataset){?>
 	<tr>
 			<td><?php Template::escape($dataset->id);?></td>
-			<td><?php Template::escape($dataset->title);?></td>
+			<td><a
+				href="<?php echo ModuleHelper::buildActionURL("bxslider_pictures", "id=".$dataset->id);?>">
+				<?php Template::escape($dataset->title);?></a></td>
 			<td><?php echo ControllerRegistry::get("SliderController")->getPictureCount($dataset->id);?></td>
 			<td style="text-align: center;"><a
 				href="<?php echo ModuleHelper::buildActionURL("bxslider_edit", "id=".$dataset->id);?>"><img

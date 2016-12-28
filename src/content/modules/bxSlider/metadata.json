@@ -1,6 +1,6 @@
 {
 	"source": "extend",
-	"version": "0.3",
+	"version": "0.4",
 	"embed": true,
 	"custom_acl": [
 		"bxSlider"
@@ -11,6 +11,7 @@
 	},
 	"actions": {
 		"bxslider_new": "templates/slider_new",
-		"bxslider_edit": "templates/slider_edit"
+		"bxslider_edit": "templates/slider_edit",
+		"bxslider_pictures": "templates/slider_pictures"
 	}
 }

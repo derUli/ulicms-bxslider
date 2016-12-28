@@ -8,6 +8,17 @@ class SliderController extends Controller {
 		}
 		return $sliders;
 	}
+	public function getSliderPictures($id) {
+		$sliderPictures = array ();
+		$args = array (
+				intval ( $id ) 
+		);
+		$query = Database::pQuery ( "select * from {prefix}slider_pictures where slider_id = ? order by id", $args, true );
+		while ( $row = Database::fetchObject ( $query ) ) {
+			$sliderPictures [] = $row;
+		}
+		return $sliderPictures;
+	}
 	public function getPictureCount($id) {
 		$args = array (
 				$id 
@@ -40,13 +51,14 @@ class SliderController extends Controller {
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
-	public function delete(){
-		$id = intval($_REQUEST["id"]);
+	public function delete() {
+		$id = intval ( $_REQUEST ["id"] );
 		$sql = "DELETE FROM {prefix}slider where id = ?";
-		$args = array($id);
-		Database::pQuery($sql, $args, true);
-		Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
-		
+		$args = array (
+				$id 
+		);
+		Database::pQuery ( $sql, $args, true );
+		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
 	public function getSliderWithoutPictures($id) {
 		$data = null;
