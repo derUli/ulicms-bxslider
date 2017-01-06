@@ -28,6 +28,10 @@ class SliderController extends Controller {
 		return $result->amount;
 	}
 	public function create() {
+		$acl = new ACL ();
+		if (! $acl->hasPermission ( "bxSlider" )) {
+			return;
+		}
 		$title = strval ( $_POST ["title"] );
 		$enabled = intval ( isset ( $_POST ["enabled"] ) );
 		$args = array (
@@ -39,6 +43,10 @@ class SliderController extends Controller {
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
 	public function update() {
+		$acl = new ACL ();
+		if (! $acl->hasPermission ( "bxSlider" )) {
+			return;
+		}
 		$title = strval ( $_POST ["title"] );
 		$enabled = intval ( isset ( $_POST ["enabled"] ) );
 		$id = intval ( $_POST ["id"] );
@@ -52,6 +60,10 @@ class SliderController extends Controller {
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
 	public function delete() {
+		$acl = new ACL ();
+		if (! $acl->hasPermission ( "bxSlider" )) {
+			return;
+		}
 		$id = intval ( $_REQUEST ["id"] );
 		$sql = "DELETE FROM {prefix}slider where id = ?";
 		$args = array (
@@ -60,9 +72,23 @@ class SliderController extends Controller {
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
+	public function deletePicture() {
+		$acl = new ACL ();
+		if (! $acl->hasPermission ( "bxSlider" )) {
+			return;
+		}
+		$id = intval ( $_REQUEST ["id"] );
+		$slider_id = intval ( $_REQUEST ["slider_id"] );
+		$sql = "DELETE FROM {prefix}slider_pictures where id = ?";
+		$args = array (
+				$id 
+		);
+		Database::pQuery ( $sql, $args, true );
+		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=" . $slider_id ) );
+	}
 	public function getSliderWithoutPictures($id) {
 		$data = null;
-		$sql = "select title, enabled from {prefix}slider where id = ?";
+		$sql = "select id, title, enabled from {prefix}slider where id = ?";
 		$args = array (
 				intval ( $id ) 
 		);
