@@ -10,6 +10,10 @@ if ($acl->hasPermission ( "bxSlider" )) {
 		?>
 
 <h1><?php translate("pictures_of_slider_x", array("%title%" => $slider->title));?></h1>
+<p>
+	<a
+		href="<?php Template::escape(ModuleHelper::buildActionURL ( "bxslider_picture_new", "slider_id=$id" ));?>">[<?php translate("add_image");?>]</a>
+</p>
 <table>
 	<thead>
 		<tr>
