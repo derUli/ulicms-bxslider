@@ -6,7 +6,7 @@ if ($acl->hasPermission ( "bxSlider" )) {
 		$picture = $controller->getPictureByID ( $id );
 		if ($picture) {
 			?>
-<h1><?php translate("add_image");?></h1>
+<h1><?php translate("edit_image");?></h1>
 <form action="index.php" method="post">
 <?php csrf_token_html();?>
 <strong><?php translate("file");?></strong> <br />
