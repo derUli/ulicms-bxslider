@@ -117,4 +117,16 @@ class SliderController extends Controller {
 		}
 		return $data;
 	}
+	public function getPictureByID($id) {
+		$sql = "select * from {prefix}slider_pictures where id = ?";
+		$args = array (
+				intval ( $id ) 
+		);
+		$picture = null;
+		$query = Database::pQuery ( $sql, $args, true );
+		if (Database::getNumRows ( $query ) > 0) {
+			$picture = Database::fetchObject ( $query );
+		}
+		return $picture;
+	}
 }
