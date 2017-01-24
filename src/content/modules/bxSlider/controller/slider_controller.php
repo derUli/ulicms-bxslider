@@ -78,6 +78,26 @@ class SliderController extends Controller {
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
 	}
+	public function updatePicture() {
+		$acl = new ACL ();
+		if (! $acl->hasPermission ( "bxSlider" )) {
+			return;
+		}
+		$file = strval ( $_POST ["file"] );
+		$position = intval ( $_POST ["position"] );
+		$enabled = intval ( isset ( $_POST ["enabled"] ) );
+		$id = intval ( $_POST ["id"] );
+		$slider_id = intval ( $_POST ["slider_id"] );
+		$args = array (
+				$file,
+				$position,
+				$enabled,
+				$id 
+		);
+		$sql = "UPDATE {prefix}slider_pictures set file = ?, position = ?, enabled = ? where id = ?";
+		Database::pQuery ( $sql, $args, true );
+		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
+	}
 	public function delete() {
 		$acl = new ACL ();
 		if (! $acl->hasPermission ( "bxSlider" )) {

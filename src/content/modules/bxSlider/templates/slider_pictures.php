@@ -39,8 +39,11 @@ if ($acl->hasPermission ( "bxSlider" )) {
 				src="<?php Template::escape($picture->file);?>"
 				alt="<?php Template::escape($slider->title);?>"
 				title="<?php Template::escape($slider->title);?>"></td>
-
-			<td><form
+			<td style="text-align: center;"><a
+				href="<?php echo ModuleHelper::buildActionURL("bxslider_picture_edit", "id=".$picture->id);?>"><img
+					src="gfx/edit.png" class="mobile-big-image"
+					alt="<?php translate("edit");?>" title="<?php translate("edit");?>"></a></td>
+			<td style="text-align: center;"><form
 					action="<?php echo ModuleHelper::buildAdminURL("bxSlider", "sClass=SliderController&sMethod=deletePicture&id=".$picture->id . "&slider_id=".$slider->id);?>"
 					method="post" onsubmit="return confirm('Wirklich Löschen?')"
 					class="delete-form"><?php csrf_token_html();?><input type="image"

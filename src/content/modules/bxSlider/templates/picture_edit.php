@@ -40,7 +40,7 @@ function openImageSelectWindow(field) {
 		name="id" value="<?php echo $picture->id;?>"> <input type="submit"
 		value="<?php translate("save");?>"> <input type="hidden" name="sClass"
 		value="SliderController"> <input type="hidden" name="sMethod"
-		value="editImage">
+		value="updatePicture">
 </form>
 <?php
 		}
