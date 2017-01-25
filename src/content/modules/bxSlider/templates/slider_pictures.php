@@ -10,15 +10,28 @@ if ($acl->hasPermission ( "bxSlider" )) {
 		?>
 
 <h1><?php translate("pictures_of_slider_x", array("%title%" => $slider->title));?></h1>
-<p>
-	<a
-		href="<?php Template::escape(ModuleHelper::buildActionURL ( "bxslider_picture_new", "slider_id=$id" ));?>">[<?php translate("add_image");?>]</a>
-</p>
+<div class="row">
+	<div class="col-xs-6">
+		<p>
+			<a
+				href="<?php Template::escape(ModuleHelper::buildAdminURL("bxSlider"));?>">[<?php translate("back_to_list");?>]</a></a>
+
+		</p>
+	</div>
+	<div class="col-xs-6 text-right">
+		<p>
+			<a
+				href="<?php Template::escape(ModuleHelper::buildActionURL ( "bxslider_picture_new", "slider_id=$id" ));?>">[<?php translate("add_image");?>]</a>
+		</p>
+	</div>
+
+</div>
 <table>
 	<thead>
 		<tr>
 			<th><?php translate("position");?></th>
 			<th><?php translate("image");?></th>
+			<td></td>
 			<td></td>
 		</tr>
 	</thead>
@@ -38,7 +51,8 @@ if ($acl->hasPermission ( "bxSlider" )) {
 			<td style="max-width: 70%; text-align: center;"><img
 				src="<?php Template::escape($picture->file);?>"
 				alt="<?php Template::escape($slider->title);?>"
-				title="<?php Template::escape($slider->title);?>"></td>
+				title="<?php Template::escape($slider->title);?>"
+				class="responsive-image"></td>
 			<td style="text-align: center;"><a
 				href="<?php echo ModuleHelper::buildActionURL("bxslider_picture_edit", "id=".$picture->id);?>"><img
 					src="gfx/edit.png" class="mobile-big-image"

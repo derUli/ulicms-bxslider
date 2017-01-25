@@ -9,6 +9,20 @@ if ($acl->hasPermission ( "bxSlider" )) {
 	?>
 
 <h1><?php translate("bxslider_edit");?></h1>
+<div class="row">
+	<div class="col-xs-6">
+		<p>
+			<a
+				href="<?php
+	Template::escape ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
+	;
+	
+	?>">[<?php translate("back_to_list");?>]</a>
+
+		</p>
+	</div>
+	<div class="col-xs-6 text-right"></div>
+</div>
 <form action="index.php" method="post">
 <?php csrf_token_html();?>
 <strong><?php translate("title");?></strong> <br /> <input type="text"

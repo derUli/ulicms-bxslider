@@ -1,5 +1,23 @@
-<?php if($acl->hasPermission("bxSlider")){?>
+<?php
+if ($acl->hasPermission ( "bxSlider" )) {
+	$slider_id = intval ( $_REQUEST ["slider_id"] );
+	?>
 <h1><?php translate("add_image");?></h1>
+<div class="row">
+	<div class="col-xs-6">
+		<p>
+			<a
+				href="<?php
+	
+	Template::escape ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
+	;
+	?>">[<?php translate("back_to_list");?>]</a>
+
+		</p>
+	</div>
+	<div class="col-xs-6 text-right"></div>
+
+</div>
 <form action="index.php" method="post">
 <?php csrf_token_html();?>
 <strong><?php translate("file");?></strong> <br />
