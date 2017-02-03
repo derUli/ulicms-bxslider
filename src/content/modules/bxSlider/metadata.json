@@ -1,10 +1,19 @@
 {
-	"source" : "extend",
-	"version" : "0.2",
-	"embed" : true,
-	"custom_acl" : ["bxSlider"],
-	"admin_permission" : "bxSlider",
-	"controllers" : {
-		"SliderController" : "controller/slider_controller.php"
+	"source": "extend",
+	"version": "0.8",
+	"embed": true,
+	"custom_acl": [
+		"bxSlider"
+	],
+	"admin_permission": "bxSlider",
+	"controllers": {
+		"SliderController": "controller/slider_controller.php"
+	},
+	"actions": {
+		"bxslider_new": "templates/slider_new",
+		"bxslider_edit": "templates/slider_edit",
+		"bxslider_pictures": "templates/slider_pictures",
+		"bxslider_picture_new" : "templates/picture_new",
+		"bxslider_picture_edit" : "templates/picture_edit"
 	}
 }
