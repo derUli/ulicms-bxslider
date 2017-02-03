@@ -3,15 +3,20 @@ define ( "MODULE_ADMIN_HEADLINE", "bxSlider" );
 define ( "MODULE_ADMIN_REQUIRED_PERMISSION", "bxSlider" );
 function bxSlider_admin() {
 	?>
-<p>
-	<a href="index.php?action=bxslider_new">[<?php translate("bxslider_new");?>]</a>
-</p>
+<div class="row">
+	<div class="col-xs-6"></div>
+	<div class="col-xs-6 text-right">
+		<p>
+			<a href="index.php?action=bxslider_new">[<?php translate("bxslider_new");?>]</a>
+		</p>
+	</div>
+</div>
+
 <table class="tablesorter">
 	<thead>
 		<th><?php translate("id");?></th>
 		<th><?php translate("title");?></th>
 		<th><?php translate("amount_of_pictures");?></th>
-
 		<td></td>
 		<td></td>
 	</thead>
