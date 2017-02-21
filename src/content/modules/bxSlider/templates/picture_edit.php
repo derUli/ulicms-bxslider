@@ -45,8 +45,12 @@ function openImageSelectWindow(field) {
 		value="<?php Template::escape($picture->file);?>"
 		style="cursor: pointer" /><br /> <a href="#"
 		onclick="$('#file').val('');return false;" required><?php translate("clear");?>
-		</a> <br /> <br /> <strong><?php translate("position");?></strong><br />
-	<input type="number" required="required" name="position"
+		</a> <br /> <br /> <strong><?php translate("title");?></strong> <br />
+	<input type="text" name="title"
+		value="<?php Template::escape($picture->title);?>" required> <br /> <br />
+
+	<strong><?php translate("position");?></strong><br /> <input
+		type="number" required="required" name="position"
 		value="<?php Template::escape($picture->position);?>" min="0" step="1">
 	<br /> <br /> <strong><?php translate("enabled");?></strong><br /> <input
 		type="checkbox" name="enabled" value="1"
