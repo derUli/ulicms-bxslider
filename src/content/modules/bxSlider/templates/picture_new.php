@@ -38,7 +38,8 @@ function openImageSelectWindow(field) {
 	<input type="text" id="file" name="file" readonly="readonly"
 		onclick="openImageSelectWindow(this)" value="" style="cursor: pointer" /><br />
 	<a href="#" onclick="$('#file').val('');return false;" required><?php translate("clear");?>
-		</a> <br /> <br /> <strong><?php translate("position");?></strong><br />
+		</a> <br /> <br /> <strong><?php translate("title");?></strong> <br /> <input type="text" name="title" value="" required> <br /> <br />
+	<strong><?php translate("position");?></strong><br />
 	<input type="number" required="required" name="position" value="0"
 		min="0" step="1"> <br /> <br /> <strong><?php translate("enabled");?></strong><br />
 	<input type="checkbox" name="enabled" value="1" checked> <br /> <br />

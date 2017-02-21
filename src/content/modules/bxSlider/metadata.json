@@ -1,6 +1,6 @@
 {
 	"source": "extend",
-	"version": "0.8",
+	"version": "0.9",
 	"embed": true,
 	"custom_acl": [
 		"bxSlider"

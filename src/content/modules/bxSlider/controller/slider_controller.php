@@ -51,13 +51,15 @@ class SliderController extends Controller {
 		$enabled = intval ( isset ( $_POST ["enabled"] ) );
 		$position = intval ( $_POST ["position"] );
 		$slider_id = intval ( $_POST ["slider_id"] );
+		$title = strval ( $_POST ["title"] );
 		$args = array (
 				$file,
 				$enabled,
 				$position,
-				$slider_id 
+				$slider_id,
+				$title 
 		);
-		$sql = "INSERT INTO {prefix}slider_pictures (file, enabled, position, slider_id) values (?, ?, ?, ?)";
+		$sql = "INSERT INTO {prefix}slider_pictures (file, enabled, position, slider_id, title) values (?, ?, ?, ?, ?)";
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
 	}
@@ -88,13 +90,15 @@ class SliderController extends Controller {
 		$enabled = intval ( isset ( $_POST ["enabled"] ) );
 		$id = intval ( $_POST ["id"] );
 		$slider_id = intval ( $_POST ["slider_id"] );
+		$title = strval ( $_POST ["title"] );
 		$args = array (
 				$file,
 				$position,
 				$enabled,
-				$id 
+				$id,
+				$title 
 		);
-		$sql = "UPDATE {prefix}slider_pictures set file = ?, position = ?, enabled = ? where id = ?";
+		$sql = "UPDATE {prefix}slider_pictures set file = ?, position = ?, enabled = ?, title = ? where id = ?";
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
 	}
