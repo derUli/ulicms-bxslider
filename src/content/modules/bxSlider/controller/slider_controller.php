@@ -52,14 +52,17 @@ class SliderController extends Controller {
 		$position = intval ( $_POST ["position"] );
 		$slider_id = intval ( $_POST ["slider_id"] );
 		$title = strval ( $_POST ["title"] );
+		$link = StringHelper::isNotNullOrEmpty ( $_POST ["link"] ) ? strval ( $_POST ["link"] ) : null;
+		
 		$args = array (
 				$file,
 				$enabled,
 				$position,
 				$slider_id,
-				$title 
+				$title,
+				$link 
 		);
-		$sql = "INSERT INTO {prefix}slider_pictures (file, enabled, position, slider_id, title) values (?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO {prefix}slider_pictures (file, enabled, position, slider_id, title, link) values (?, ?, ?, ?, ?, ?)";
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
 	}
@@ -91,14 +94,17 @@ class SliderController extends Controller {
 		$id = intval ( $_POST ["id"] );
 		$slider_id = intval ( $_POST ["slider_id"] );
 		$title = strval ( $_POST ["title"] );
+		$link = StringHelper::isNotNullOrEmpty ( $_POST ["link"] ) ? strval ( $_POST ["link"] ) : null;
+		
 		$args = array (
 				$file,
 				$position,
 				$enabled,
-				$id,
-				$title 
+				$title,
+				$link,
+				$id 
 		);
-		$sql = "UPDATE {prefix}slider_pictures set file = ?, position = ?, enabled = ?, title = ? where id = ?";
+		$sql = "UPDATE {prefix}slider_pictures set file = ?, position = ?, enabled = ?, title = ?, link = ? where id = ?";
 		Database::pQuery ( $sql, $args, true );
 		Request::redirect ( ModuleHelper::buildActionURL ( "bxslider_pictures", "id=$slider_id" ) );
 	}

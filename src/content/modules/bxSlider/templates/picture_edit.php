@@ -52,8 +52,10 @@ function openImageSelectWindow(field) {
 	<strong><?php translate("position");?></strong><br /> <input
 		type="number" required="required" name="position"
 		value="<?php Template::escape($picture->position);?>" min="0" step="1">
-	<br /> <br /> <strong><?php translate("enabled");?></strong><br /> <input
-		type="checkbox" name="enabled" value="1"
+	<br /> <br /> <strong><?php translate("link");?></strong> <br /> <input
+		type="url" name="link"
+		value="<?php Template::escape($picture->link);?>"> <br /> <br /> <strong><?php translate("enabled");?></strong><br />
+	<input type="checkbox" name="enabled" value="1"
 		<?php if($picture->enabled == 1) echo "checked"?>> <br /> <br /> <input
 		type="hidden" name="slider_id"
 		value="<?php echo $picture->slider_id;?>"> <input type="hidden"

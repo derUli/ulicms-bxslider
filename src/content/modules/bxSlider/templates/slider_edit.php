@@ -15,7 +15,6 @@ if ($acl->hasPermission ( "bxSlider" )) {
 			<a
 				href="<?php
 	Template::escape ( ModuleHelper::buildAdminURL ( "bxSlider" ) );
-	;
 	
 	?>">[<?php translate("back_to_list");?>]</a>
 

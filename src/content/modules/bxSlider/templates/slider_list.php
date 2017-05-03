@@ -15,8 +15,16 @@ foreach ( $slider as $picture ) {
 			$title = $picture->file;
 		}
 		?>
-  <li><img src="<?php Template::escape($picture->file);?>"
-		alt="<?php Template::escape($title);?>" /></li>
+  <li><?php if(StringHelper::isNotNullOrEmpty($picture->link)){?><a
+		href="<?php Template::escape($picture->link);?>"><img
+			src="<?php Template::escape($picture->file);?>"
+			alt="<?php Template::escape($title);?>" /></a>
+		<?php
+		} else {
+			?><img src="<?php Template::escape($picture->file);?>"
+		alt="<?php Template::escape($title);?>" />
+			<?php }?>
+		</li>
 <?php }?>
 <?php }?>
 
