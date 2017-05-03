@@ -5,9 +5,10 @@ Database::query ( "CREATE TABLE `{prefix}slider_pictures` ( `id` INT NOT NULL AU
 
 Database::query ( "ALTER TABLE `{prefix}slider_pictures` add column title varchar(255) null default ''", true );
 
+Database::query ( "ALTER TABLE `{prefix}slider_pictures` add column link varchar(255) null default null", true );
+
 Database::query ( "ALTER TABLE `{prefix}slider_pictures`
   ADD CONSTRAINT fk_slider
   FOREIGN KEY (slider_id) 
   REFERENCES `{prefix}slider`(id)
-  ON DELETE CASCADE;
-", true );
+  ON DELETE CASCADE;", true );
