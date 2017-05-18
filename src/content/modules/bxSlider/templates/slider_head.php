@@ -1,6 +1,6 @@
-<?php if(containsModule(null, "bxSlider")){?>
 <!-- bxSlider Javascript file -->
-<script src="<?php echo getModulePath("bxSlider");?>jquery.bxslider.min.js"></script>
+<script
+	src="<?php echo getModulePath("bxSlider");?>jquery.bxslider.min.js"></script>
 <!-- bxSlider CSS file -->
-<link href="<?php echo getModulePath("bxSlider");?>jquery.bxslider.css" rel="stylesheet" />
-<?php }?>
+<link href="<?php echo getModulePath("bxSlider");?>jquery.bxslider.css"
+	rel="stylesheet" />
