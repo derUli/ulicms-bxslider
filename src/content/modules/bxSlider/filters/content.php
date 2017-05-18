@@ -1,6 +1,6 @@
 <?php
 function bxSlider_content_filter($text) {
-	preg_match_all ( "/\[bxslider]([0-9]+)\[\/bxslider]/", $text, $match );
+	preg_match_all ( "/\[bxSlider]([0-9]+)\[\/bxSlider]/", $text, $match );
 	
 	if (count ( $match ) > 0) {
 		for($i = 0; $i < count ( $match [0] ); $i ++) {
