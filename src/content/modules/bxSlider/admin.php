@@ -17,6 +17,8 @@ function bxSlider_admin() {
 		<th><?php translate("id");?></th>
 		<th><?php translate("title");?></th>
 		<th><?php translate("amount_of_pictures");?></th>
+		<th><?php translate("code_to_embed");?></th>
+
 		<td></td>
 		<td></td>
 	</thead>
@@ -28,10 +30,18 @@ function bxSlider_admin() {
 				href="<?php echo ModuleHelper::buildActionURL("bxslider_pictures", "id=".$dataset->id);?>">
 				<?php Template::escape($dataset->title);?></a></td>
 			<td><?php echo ControllerRegistry::get("SliderController")->getPictureCount($dataset->id);?></td>
-			<td style="text-align: center;"><a
-				href="<?php echo ModuleHelper::buildActionURL("bxslider_edit", "id=".$dataset->id);?>"><img
-					src="gfx/edit.png" class="mobile-big-image"
+			<td><input type="text"
+				value="[bxSlider]<?php echo $dataset->id;?>[/bxSlider]" readonly
+				onclick="this.select();"></td>
+			<td><a
+				href="<?php
+		
+		echo ModuleHelper::
+
+		buildActionURL ( "bxslider_edit", "id=" . $dataset->id );
+		?>"><img src="gfx/edit.png" class="mobile-big-image"
 					alt="<?php translate("edit");?>" title="<?php translate("edit");?>"></a></td>
+
 			<td style="text-align: center;"><form
 					action="<?php echo ModuleHelper::buildAdminURL("bxSlider", "sClass=SliderController&sMethod=delete&id=".$dataset->id);?>"
 					method="post" onsubmit="return confirm('Wirklich Löschen?')"

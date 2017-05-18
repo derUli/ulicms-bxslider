@@ -1,7 +1,10 @@
 <?php
 $data = CustomData::get ();
 $slider = null;
-if (isset ( $data ["slider_id"] )) {
+if (Vars::get ( "slider_id" )) {
+	$slider = bxSlider_get ( Vars::get ( "slider_id" ) );
+	Vars::delete ( "slider_id" );
+} else if (isset ( $data ["slider_id"] )) {
 	$slider = bxSlider_get ( $data ["slider_id"] );
 }
 ?>
