@@ -1,4 +1,5 @@
 <?php
+$acl = new ACL();
 if ($acl->hasPermission ( "bxSlider" )) {
 	$slider_id = intval ( $_REQUEST ["slider_id"] );
 	?>

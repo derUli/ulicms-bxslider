@@ -1,3 +1,6 @@
+<?php 
+$acl = new ACL();
+?>
 <?php if($acl->hasPermission("bxSlider")){?>
 <h1><?php translate("bxslider_new");?></h1>
 <div class="row">

@@ -1,4 +1,5 @@
 <?php
+$acl = new ACL();
 if ($acl->hasPermission ( "bxSlider" )) {
 	$id = intval ( $_REQUEST ["id"] );
 	$controller = ControllerRegistry::get ( "SliderController" );
