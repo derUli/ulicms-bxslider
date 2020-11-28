@@ -5,7 +5,8 @@ use function UliCMS\HTML\icon;
 define("MODULE_ADMIN_HEADLINE", "bxSlider");
 define("MODULE_ADMIN_REQUIRED_PERMISSION", "bxSlider");
 
-function bxSlider_admin() {
+function bxSlider_admin()
+{
     ?>
     <div class="row">
         <div class="col-xs-6"></div>
@@ -57,7 +58,7 @@ function bxSlider_admin() {
                         action="<?php echo ModuleHelper::buildAdminURL("bxSlider", "sClass=SliderController&sMethod=delete&id=" . $dataset->id); ?>"
                         method="post" onsubmit="return confirm('Wirklich Löschen?')"
                         class="delete-form"><?php csrf_token_html(); ?><input type="image"
-                                                                          class="mobile-big-image" src="gfx/delete.gif"
+                                                                          class="mobile-big-image" src="gfx/delete.png"
                                                                           alt="<?php
                                                                           translate("delete");
                                                                           ?>"

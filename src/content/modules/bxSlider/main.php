@@ -1,6 +1,7 @@
 <?php
 
-function bxSlider_get($id) {
+function bxSlider_get($id)
+{
     $id = intval($id);
     $result = null;
     $args = array(
@@ -19,6 +20,7 @@ function bxSlider_get($id) {
     return $result;
 }
 
-function bxSlider_render() {
+function bxSlider_render()
+{
     return Template::executeModuleTemplate("bxSlider", "slider_list");
 }

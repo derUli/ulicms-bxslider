@@ -10,8 +10,7 @@ if ($acl->hasPermission("bxSlider")) {
     if (!$slider) {
         Request::javascriptRedirect(ModuleHelper::buildAdminURL("bxSlider"));
     } else {
-        $sliderPictures = $controller->getSliderPictures($id);
-        ?>
+        $sliderPictures = $controller->getSliderPictures($id); ?>
 
         <h1><?php translate("pictures_of_slider_x", array("%title%" => $slider->title)); ?></h1>
         <div class="row">
@@ -53,8 +52,7 @@ if ($acl->hasPermission("bxSlider")) {
                             $color = 'green';
                         } else {
                             $color = "red";
-                        }
-                        ?>
+                        } ?>
                         <tr>
                             <td style="color:<?php echo $color; ?>"><?php echo $picture->position; ?></td>
                             <td style="max-width: 70%;"><img
@@ -70,17 +68,16 @@ if ($acl->hasPermission("bxSlider")) {
                                     action="<?php echo ModuleHelper::buildAdminURL("bxSlider", "sClass=SliderController&sMethod=deletePicture&id=" . $picture->id . "&slider_id=" . $slider->id); ?>"
                                     method="post" onsubmit="return confirm('Wirklich Löschen?')"
                                     class="delete-form"><?php csrf_token_html(); ?><input type="image"
-                                                                                      class="mobile-big-image" src="gfx/delete.gif"
+                                                                                      class="mobile-big-image" src="gfx/delete.png"
                                                                                       alt="<?php
-                                                                                      translate("delete");
-                                                                                      ?>"
+                                                                                      translate("delete"); ?>"
                                                                                       title="<?php
-                                                                                      translate("delete");
-                                                                                      ?>">
+                                                                                      translate("delete"); ?>">
                                 </form></td>
 
                         </tr>
-                    <?php } ?>
+                    <?php
+                    } ?>
                 </tbody>
             <?php } ?>
         </table>

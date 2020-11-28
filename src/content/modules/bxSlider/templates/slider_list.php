@@ -4,7 +4,7 @@ $slider = null;
 if (Vars::get("slider_id")) {
     $slider = bxSlider_get(Vars::get("slider_id"));
     Vars::delete("slider_id");
-} else if (isset($data ["slider_id"])) {
+} elseif (isset($data ["slider_id"])) {
     $slider = bxSlider_get($data ["slider_id"]);
 }
 ?>
@@ -16,8 +16,7 @@ if (Vars::get("slider_id")) {
                 $title = $picture->title;
             } else {
                 $title = $picture->file;
-            }
-            ?>
+            } ?>
             <li><?php if (StringHelper::isNotNullOrEmpty($picture->link)) { ?><a
                         href="<?php Template::escape($picture->link); ?>"><img
                             src="<?php Template::escape($picture->file); ?>"
@@ -26,9 +25,12 @@ if (Vars::get("slider_id")) {
                     } else {
                         ?><img src="<?php Template::escape($picture->file); ?>"
                          alt="<?php Template::escape($title); ?>" />
-                     <?php } ?>
+                     <?php
+                    } ?>
             </li>
-        <?php } ?>
-    <?php } ?>
+        <?php
+        } ?>
+    <?php
+    } ?>
 
 </ul>

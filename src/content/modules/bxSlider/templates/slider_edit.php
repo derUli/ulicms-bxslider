@@ -9,8 +9,7 @@ if ($acl->hasPermission("bxSlider")) {
     $slider = $controller->getSliderWithoutPictures($id);
     if (!$slider) {
         Request::javascriptRedirect(ModuleHelper::buildAdminURL("bxSlider"));
-    }
-    ?>
+    } ?>
 
     <h1><?php translate("bxslider_edit"); ?></h1>
     <div class="row">
@@ -18,8 +17,7 @@ if ($acl->hasPermission("bxSlider")) {
             <p>
                 <a
                     href="<?php
-                    Template::escape(ModuleHelper::buildAdminURL("bxSlider"));
-                    ?>"
+                    Template::escape(ModuleHelper::buildAdminURL("bxSlider")); ?>"
                     class="btn btn-default btn-back">
                         <?php echo icon("fa fa-arrow-left"); ?>
                     <?php translate("back_to_list"); ?></a>
@@ -34,7 +32,9 @@ if ($acl->hasPermission("bxSlider")) {
                                                                     name="title" value="<?php Template::escape($slider->title); ?>"
                                                                     required> <br /> <br /> <strong><?php translate("enabled"); ?></strong><br />
         <input type="checkbox" name="enabled" value="1"
-               <?php if ($slider->enabled) echo "checked"; ?>> <br /> <br />
+               <?php if ($slider->enabled) {
+                        echo "checked";
+                    } ?>> <br /> <br />
         <button
             type="submit"
             class="btn btn-primary"
@@ -51,5 +51,5 @@ if ($acl->hasPermission("bxSlider")) {
     </form>
     <?php
 } else {
-    noPerms();
-}
+                        noPerms();
+                    }

@@ -4,8 +4,7 @@ use function UliCMS\HTML\icon;
 
 $acl = new ACL();
 if ($acl->hasPermission("bxSlider")) {
-    $slider_id = intval($_REQUEST ["slider_id"]);
-    ?>
+    $slider_id = intval($_REQUEST ["slider_id"]); ?>
     <h1><?php translate("add_image"); ?></h1>
     <div class="row">
         <div class="col-xs-6">
@@ -13,8 +12,7 @@ if ($acl->hasPermission("bxSlider")) {
                 <a
                     href="<?php
                     Template::escape(ModuleHelper::buildActionURL("bxslider_pictures", "id=$slider_id"));
-                    ;
-                    ?>"
+    ; ?>"
                     class="btn btn-primary">
                     <?php echo icon("fa fa-arrow-left"); ?><?php translate("back_to_list"); ?></a>
 
@@ -71,5 +69,5 @@ if ($acl->hasPermission("bxSlider")) {
     </form>
     <?php
 } else {
-    noPerms();
-}
+        noPerms();
+    }

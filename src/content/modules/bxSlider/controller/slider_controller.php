@@ -1,8 +1,9 @@
 <?php
 
-class SliderController extends Controller {
-
-    public function getAllSliders() {
+class SliderController extends Controller
+{
+    public function getAllSliders()
+    {
         $sliders = array();
         $query = Database::query("select * from {prefix}slider order by id", true);
         while ($row = Database::fetchObject($query)) {
@@ -11,7 +12,8 @@ class SliderController extends Controller {
         return $sliders;
     }
 
-    public function getSliderPictures($id) {
+    public function getSliderPictures($id)
+    {
         $sliderPictures = array();
         $args = array(
             intval($id)
@@ -23,7 +25,8 @@ class SliderController extends Controller {
         return $sliderPictures;
     }
 
-    public function getPictureCount($id) {
+    public function getPictureCount($id)
+    {
         $args = array(
             $id
         );
@@ -32,8 +35,9 @@ class SliderController extends Controller {
         return $result->amount;
     }
 
-    public function create() {
-        $acl = new ACL ();
+    public function create()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -48,8 +52,9 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
     }
 
-    public function addImage() {
-        $acl = new ACL ();
+    public function addImage()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -73,8 +78,9 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildActionURL("bxslider_pictures", "id=$slider_id"));
     }
 
-    public function update() {
-        $acl = new ACL ();
+    public function update()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -91,8 +97,9 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
     }
 
-    public function updatePicture() {
-        $acl = new ACL ();
+    public function updatePicture()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -117,8 +124,9 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildActionURL("bxslider_pictures", "id=$slider_id"));
     }
 
-    public function delete() {
-        $acl = new ACL ();
+    public function delete()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -131,8 +139,9 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildAdminURL("bxSlider"));
     }
 
-    public function deletePicture() {
-        $acl = new ACL ();
+    public function deletePicture()
+    {
+        $acl = new ACL();
         if (!$acl->hasPermission("bxSlider")) {
             return;
         }
@@ -146,7 +155,8 @@ class SliderController extends Controller {
         Request::redirect(ModuleHelper::buildActionURL("bxslider_pictures", "id=" . $slider_id));
     }
 
-    public function getSliderWithoutPictures($id) {
+    public function getSliderWithoutPictures($id)
+    {
         $data = null;
         $sql = "select id, title, enabled from {prefix}slider where id = ?";
         $args = array(
@@ -159,7 +169,8 @@ class SliderController extends Controller {
         return $data;
     }
 
-    public function getPictureByID($id) {
+    public function getPictureByID($id)
+    {
         $sql = "select * from {prefix}slider_pictures where id = ?";
         $args = array(
             intval($id)
@@ -171,5 +182,4 @@ class SliderController extends Controller {
         }
         return $picture;
     }
-
 }

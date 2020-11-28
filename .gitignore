@@ -1,2 +1,3 @@
 dist/*
 work/*
+.php_cs.cache

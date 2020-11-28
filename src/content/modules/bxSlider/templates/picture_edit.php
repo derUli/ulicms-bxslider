@@ -9,16 +9,14 @@ if ($acl->hasPermission("bxSlider")) {
     if ($controller) {
         $picture = $controller->getPictureByID($id);
         if ($picture) {
-            $slider_id = $picture->slider_id;
-            ?>
+            $slider_id = $picture->slider_id; ?>
             <h1><?php translate("edit_image"); ?></h1>
             <div class="row">
                 <div class="col-xs-6">
                     <p>
                         <a
                             href="<?php
-                            Template::escape(ModuleHelper::buildActionURL("bxslider_pictures", "id=$slider_id"));
-                            ?>"
+                            Template::escape(ModuleHelper::buildActionURL("bxslider_pictures", "id=$slider_id")); ?>"
                             class="btn btn-default">
                                 <?php echo icon("fa fa-arrow-left"); ?>
                             <?php translate("back_to_list"); ?></a>
@@ -61,7 +59,9 @@ if ($acl->hasPermission("bxSlider")) {
                     type="url" name="link"
                     value="<?php Template::escape($picture->link); ?>"> <br /> <br /> <strong><?php translate("enabled"); ?></strong><br />
                 <input type="checkbox" name="enabled" value="1"
-                       <?php if ($picture->enabled == 1) echo "checked" ?>> <br /> <br /> <input
+                       <?php if ($picture->enabled == 1) {
+                                echo "checked";
+                            } ?>> <br /> <br /> <input
                        type="hidden" name="slider_id"
                        value="<?php echo $picture->slider_id; ?>"> <input type="hidden"
                        name="id" value="<?php echo $picture->id; ?>">

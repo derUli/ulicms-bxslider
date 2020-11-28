@@ -37,6 +37,6 @@ $acl = new ACL();
     </form>
     <?php
 } else {
-    noPerms();
-}
+                        noPerms();
+                    }
 ?>
